@@ -11,11 +11,11 @@ export const personalInfo = {
   email: "shuvo.249963@gmail.com",
   phone: "+8801758197272",
   location: "Nikunja-2,Khilkhet,Dhaka-1229",
-  bio: "Passionate Frontend Web developer with 1 year of experience building scalable web applications. I love turning complex problems into simple, beautiful, and intuitive solutions.",
+  bio: "Passionate Frontend Web Developer with 1 year of experience building modern, user-friendly web interfaces. I enjoy turning complex problems into clean, intuitive, and visually appealing solutions.",
   resumeUrl: "#",
   social: {
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
+    github: "https://github.com/SuvroBiswas93",
+    linkedin: "https://www.linkedin.com/in/the-suvro-biswas/",
     twitter: "https://x.com/",
   }
 };
@@ -24,31 +24,42 @@ export const skills = [
   {
     category: "Frontend",
     items: [
-      { name: "React", level: 95 },
-      { name: "TypeScript", level: 90 },
+      { name: "Html5", level: 95 },
+      { name: "Css3", level: 95 },
+      { name: "Javascript", level: 90 },
+      { name: "React", level: 90 },
       { name: "Tailwind CSS", level: 92 },
-      { name: "Next.js", level: 88 },
-      { name: "Vue.js", level: 75 },
+      { name: "React Router", level: 90 },
+      { name: "Responsive Design", level: 95 },
+      { name: "Framer Motion", level: 85 },
+      { name: "Component Architecture", level: 90 },
+      { name: "Web Performance Optimization", level: 80 },
+      { name: "Hooks & State Management", level: 90 },
     ]
   },
   {
     category: "Backend",
     items: [
-      { name: "Node.js", level: 90 },
+      { name: "Node.js", level: 85 },
       { name: "Express.js", level: 85 },
+      { name: "REST APIs", level: 88 },
       { name: "MongoDB", level: 82 },
+      { name: "Firebase Authentication", level: 85 },
+      { name: "JWT Authentication", level: 80 },
     ]
   },
   {
-    category: "Tools & Others",
-    items: [
-      { name: "Git", level: 92 },
-      { name: "Docker", level: 85 },
-      { name: "AWS", level: 80 },
-      { name: "CI/CD", level: 83 },
-      { name: "Figma", level: 75 },
-    ]
-  }
+  category: "Tools & Others",
+  items: [
+    { name: "Git & GitHub", level: 92 },
+    { name: "Vite", level: 90 },
+    { name: "Vercel", level: 90 },
+    { name: "Netlify", level: 88 },
+    { name: "Postman", level: 85 },
+    { name: "ESLint / Prettier", level: 88 },
+    { name: "Figma", level: 75 },
+  ]
+}
 ];
 
 export const projects = [

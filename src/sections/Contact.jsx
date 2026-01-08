@@ -71,7 +71,7 @@ const Contact = () => {
   ];
 
   return (
-    <SectionWrapper id="contact" className="bg-gradient-to-br from-blue-50 to-purple-50">
+    <SectionWrapper id="contact" className="bg-linear-to-br from-blue-50 to-purple-50">
       <SectionTitle
         title="Get In Touch"
         subtitle="Have a project in mind? Let's work together"
@@ -133,7 +133,7 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
-                placeholder="John Doe"
+                placeholder="Your Name..."
               />
             </div>
 
@@ -149,7 +149,7 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
-                placeholder="john@example.com"
+                placeholder="Your email..."
               />
             </div>
 
@@ -165,7 +165,7 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
-                placeholder="Project Discussion"
+                placeholder="Your Subject..."
               />
             </div>
 
@@ -181,7 +181,7 @@ const Contact = () => {
                 required
                 rows={5}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none resize-none"
-                placeholder="Tell me about your project..."
+                placeholder="Write Your Message Here..."
               />
             </div>
 
@@ -190,7 +190,7 @@ const Contact = () => {
               disabled={isSubmitting}
               icon={Send}
               size="lg"
-              className="w-full"
+              className="w-full cursor-pointer"
             >
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </Button>

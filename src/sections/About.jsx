@@ -20,10 +20,10 @@ const About = () => {
           className="relative"
         >
           <div className="relative w-full aspect-square max-w-md mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl rotate-6"></div>
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl -rotate-6"></div>
+            <div className="absolute inset-0 bg-linear-to-br from-blue-500 to-purple-500 rounded-2xl rotate-6"></div>
+            <div className="absolute inset-0 bg-linear-to-br from-purple-500 to-pink-500 rounded-2xl -rotate-6"></div>
             <img
-              src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+              src="https://scontent.fjsr12-1.fna.fbcdn.net/v/t1.6435-9/49798885_1277512335724545_1321596784560046080_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHmtzV_udCf_YyLepDlC6i_xm9wbKWod97Gb3Bspah33iXeD2f-z6EeT9jCwa5nQK8Ck42M6I7awOvxIFEJNLIY&_nc_ohc=LeZrevTJDFsQ7kNvwHqKWf4&_nc_oc=AdlAU12T4G37YDN-jyA-cqyu3tPkkelyU3kqRfXQH4Vh0Ly0DNnziYTy2wMNDz7w3ow&_nc_zt=23&_nc_ht=scontent.fjsr12-1.fna&_nc_gid=5JIfkT0b-SorYtHwjlifAQ&oh=00_AfqqbTULEN3vjUUIHkEI9apEmx7Wz92qPH3btWcvEMq-Ag&oe=6986B0AE"
               alt="Profile"
               className="relative rounded-2xl w-full h-full object-cover shadow-2xl"
             />
