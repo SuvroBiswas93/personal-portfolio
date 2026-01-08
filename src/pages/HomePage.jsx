@@ -4,6 +4,7 @@ import About from '../sections/About';
 import Skills from '../sections/Skills';
 import Projects from '../sections/Projects';
 import Contact from '../sections/Contact';
+import Education from '../sections/Education'
 
 const HomePage = () => {
   useEffect(() => {
@@ -14,9 +15,11 @@ const HomePage = () => {
     <div className="bg-white">
       <Hero />
       <About />
+      {/* <Education /> */}
       <Skills />
       <Projects />
       <Contact />
+      
     </div>
   );
 };

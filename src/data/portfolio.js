@@ -60,6 +60,57 @@ export const skills = [
 }
 ];
 
+export const education = [
+  {
+    id: 1,
+    degree: "Bachelor of Science in Computer Science",
+    institution: "Dhaka University",
+    period: "2015 - 2019",
+    description: "Focused on software development, data structures, algorithms, and web technologies. Graduated with honors."
+  },
+  {
+    id: 2,
+    degree: "Higher Secondary Certificate (HSC)",
+    institution: "Dhaka College",
+    period: "2013 - 2015",
+    description: "Science stream with focus on mathematics and physics. Achieved high grades."
+  },
+  {
+    id: 3,
+    degree: "Secondary School Certificate (SSC)",
+    institution: "Nikunja High School",
+    period: "2011 - 2013",
+    description: "Completed secondary education with strong academic performance."
+  }
+];
+
+export const certificates = [
+  {
+    id: 1,
+    title: "React Developer Certification",
+    issuer: "FreeCodeCamp",
+    year: "2022",
+    url: "#"
+  },
+  {
+    id: 2,
+    title: "Full Stack Web Development",
+    issuer: "Coursera",
+    year: "2021",
+    url: "#"
+  }
+];
+
+export const achievements = [
+  {
+    id: 1,
+    title: "Best Student Project Award",
+    year: "2018",
+    description: "Recognized for innovative web application project in the Computer Science department."
+  }
+];
+
+
 export const projects = [
   {
     id: 1,

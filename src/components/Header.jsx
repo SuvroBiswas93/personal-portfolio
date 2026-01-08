@@ -6,6 +6,7 @@ import { Menu, X } from 'lucide-react';
 const navItems = [
   { name: 'Home', href: '#home', isAnchor: true },
   { name: 'About', href: '#about', isAnchor: true },
+  { name: 'Education', href: '#education', isAnchor: true },
   { name: 'Skills', href: '#skills', isAnchor: true },
   { name: 'Projects', href: '#projects', isAnchor: true },
   { name: 'Contact', href: '#contact', isAnchor: true },
@@ -47,7 +48,11 @@ const Header = () => {
 
   // Close mobile menu on route change
   useEffect(() => {
-    setIsMobileMenuOpen(false);
+    const timer = setTimeout(() => {
+      setIsMobileMenuOpen(false);
+    }, 0);
+
+    return () => clearTimeout(timer);
   }, [location]);
 
   const handleAnchorClick = (e, href) => {
@@ -73,9 +78,8 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-lg py-4' : 'bg-transparent py-6'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg py-4' : 'bg-transparent py-6'
+        }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
@@ -95,26 +99,24 @@ const Header = () => {
                 {item.isAnchor ? (
                   <button
                     onClick={(e) => handleAnchorClick(e, item.href)}
-                    className={`text-sm font-medium transition-colors cursor-pointer ${
-                      isActive(item.href)
+                    className={`text-sm font-medium transition-colors cursor-pointer ${isActive(item.href)
                         ? 'text-blue-600 font-semibold'
                         : isScrolled
-                        ? 'text-gray-700 hover:text-blue-600'
-                        : 'text-gray-800 hover:text-blue-600'
-                    }`}
+                          ? 'text-gray-700 hover:text-blue-600'
+                          : 'text-gray-800 hover:text-blue-600'
+                      }`}
                   >
                     {item.name}
                   </button>
                 ) : (
                   <Link
                     to={item.href}
-                    className={`text-sm font-medium transition-colors ${
-                      isActive(item.href)
+                    className={`text-sm font-medium transition-colors ${isActive(item.href)
                         ? 'text-blue-600 font-semibold'
                         : isScrolled
-                        ? 'text-gray-700 hover:text-blue-600'
-                        : 'text-gray-800 hover:text-blue-600'
-                    }`}
+                          ? 'text-gray-700 hover:text-blue-600'
+                          : 'text-gray-800 hover:text-blue-600'
+                      }`}
                   >
                     {item.name}
                   </Link>
@@ -146,22 +148,20 @@ const Header = () => {
                 {item.isAnchor ? (
                   <button
                     onClick={(e) => handleAnchorClick(e, item.href)}
-                    className={`block py-2 text-base font-medium w-full text-left ${
-                      isActive(item.href)
+                    className={`block py-2 text-base font-medium w-full text-left ${isActive(item.href)
                         ? 'text-blue-600 font-semibold'
                         : 'text-gray-700 hover:text-blue-600'
-                    }`}
+                      }`}
                   >
                     {item.name}
                   </button>
                 ) : (
                   <Link
                     to={item.href}
-                    className={`block py-2 text-base font-medium ${
-                      isActive(item.href)
+                    className={`block py-2 text-base font-medium ${isActive(item.href)
                         ? 'text-blue-600 font-semibold'
                         : 'text-gray-700 hover:text-blue-600'
-                    }`}
+                      }`}
                   >
                     {item.name}
                   </Link>
