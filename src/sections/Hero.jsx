@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 import { fadeIn, textVariant } from '../utils/animations';
 import Button from '../components/Button';
+import Typewriter from '../components/Typewriter'
 import { personalInfo } from '../data/portfolio';
 
 const Hero = () => {
@@ -63,7 +64,7 @@ const Hero = () => {
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6"
           >
             Hi, I'm{' '}
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               {personalInfo.name}
             </span>
           </motion.h1>
@@ -72,9 +73,9 @@ const Hero = () => {
             variants={fadeIn('up', 0.4)}
             initial="hidden"
             animate="show"
-            className="text-xl sm:text-2xl md:text-3xl text-gray-700 mb-4 font-medium"
+            className="text-xl sm:text-2xl md:text-3xl text-gray-700 mb-4 font-medium min-h-10 sm:min-h-14"
           >
-            {personalInfo.title}
+            <Typewriter texts={personalInfo.typewriterTexts} speed={80} deleteSpeed={40} delayBetween={2500} />
           </motion.p>
 
           <motion.p
@@ -92,10 +93,10 @@ const Hero = () => {
             animate="show"
             className="flex flex-wrap items-center justify-center gap-4 mb-12"
           >
-            <Button onClick={scrollToProjects} size="lg">
+            <Button onClick={scrollToProjects} size="lg" className='cursor-pointer'>
               View My Work
             </Button>
-            <Button onClick={scrollToContact} variant="outline" size="lg">
+            <Button onClick={scrollToContact} variant="outline" size="lg" className='cursor-pointer'>
               Contact Me
             </Button>
           </motion.div>

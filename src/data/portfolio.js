@@ -1,6 +1,13 @@
 export const personalInfo = {
   name: "Suvro Biswas",
   title: "Frontend Web Developer",
+    typewriterTexts: [
+    "Front End Web Developer",
+    "React Developer",
+    "Building modern & responsive web apps",
+    'Creating clean, scalable UI',
+    'Always learning. Always building.'
+  ],
   email: "shuvo.249963@gmail.com",
   phone: "+8801758197272",
   location: "Nikunja-2,Khilkhet,Dhaka-1229",
@@ -9,7 +16,7 @@ export const personalInfo = {
   social: {
     github: "https://github.com",
     linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com",
+    twitter: "https://x.com/",
   }
 };
 
