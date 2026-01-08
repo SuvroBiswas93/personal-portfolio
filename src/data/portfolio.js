@@ -31,10 +31,8 @@ export const skills = [
       { name: "Tailwind CSS", level: 92 },
       { name: "React Router", level: 90 },
       { name: "Responsive Design", level: 95 },
-      { name: "Framer Motion", level: 85 },
       { name: "Component Architecture", level: 90 },
       { name: "Web Performance Optimization", level: 80 },
-      { name: "Hooks & State Management", level: 90 },
     ]
   },
   {
