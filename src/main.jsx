@@ -1,8 +1,8 @@
 import { StrictMode, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
-import { RouterProvider } from 'react-router-dom';
+import { RouterProvider } from 'react-router';
 import Lenis from 'lenis';
-import router from './routes';
+import router from './routes/router'
 import './index.css';
 
 const App = () => {

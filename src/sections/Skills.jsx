@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import SectionWrapper from '../components/SectionWrapper';
 import SectionTitle from '../components/SectionTitle';
-import { fadeIn } from '../utils/animations';
+import { fadeIn } from '../utils/animations'
 import { skills } from '../data/portfolio';
 
 const SkillBar = ({ skill, index }) => {

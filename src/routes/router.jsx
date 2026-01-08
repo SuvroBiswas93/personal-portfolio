@@ -16,18 +16,7 @@ export const router = createBrowserRouter([
         index: true,
         element: <HomePage />,
       },
-      {
-        path: 'projects',
-        element: <ProjectsPage />,
-      },
-      {
-        path: 'skills',
-        element: <SkillsPage />,
-      },
-      {
-        path: 'contact',
-        element: <ContactPage />,
-      },
+     
       {
         path: '*',
         element: <NotFoundPage />,

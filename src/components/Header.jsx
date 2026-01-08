@@ -4,10 +4,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const navItems = [
-  { name: 'Home', href: '/' },
-  { name: 'Skills', href: '/skills' },
-  { name: 'Projects', href: '/projects' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Home', href: '#home', isAnchor: true },
+  { name: 'About', href: '#about', isAnchor: true },
+  { name: 'Skills', href: '#skills', isAnchor: true },
+  { name: 'Projects', href: '#projects', isAnchor: true },
+  { name: 'Contact', href: '#contact', isAnchor: true },
 ];
 
 const Header = () => {
@@ -28,8 +29,20 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   }, [location]);
 
+  const handleAnchorClick = (e, href) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const isActive = (href) => {
-    return location.pathname === href;
+    if (!href.startsWith('#')) {
+      return location.pathname === href;
+    }
+    return false;
   };
 
   return (
@@ -49,7 +62,7 @@ const Header = () => {
           >
             <Link
               to="/"
-              className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+              className="text-2xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
             >
               Portfolio
             </Link>
@@ -62,24 +75,30 @@ const Header = () => {
                 className="relative"
                 whileHover={{ y: -2 }}
               >
-                <Link
-                  to={item.href}
-                  className={`text-sm font-medium transition-colors ${
-                    isActive(item.href)
-                      ? 'text-blue-600'
-                      : isScrolled
-                      ? 'text-gray-700 hover:text-blue-600'
-                      : 'text-gray-800 hover:text-blue-600'
-                  }`}
-                >
-                  {item.name}
-                </Link>
-                {isActive(item.href) && (
-                  <motion.div
-                    layoutId="activeNav"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-600"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
+                {item.isAnchor ? (
+                  <button
+                    onClick={(e) => handleAnchorClick(e, item.href)}
+                    className={`text-sm font-medium transition-colors cursor-pointer ${
+                      isScrolled
+                        ? 'text-gray-700 hover:text-blue-600'
+                        : 'text-gray-800 hover:text-blue-600'
+                    }`}
+                  >
+                    {item.name}
+                  </button>
+                ) : (
+                  <Link
+                    to={item.href}
+                    className={`text-sm font-medium transition-colors ${
+                      isActive(item.href)
+                        ? 'text-blue-600'
+                        : isScrolled
+                        ? 'text-gray-700 hover:text-blue-600'
+                        : 'text-gray-800 hover:text-blue-600'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
                 )}
               </motion.div>
             ))}
@@ -106,16 +125,25 @@ const Header = () => {
                 key={item.name}
                 whileHover={{ x: 5 }}
               >
-                <Link
-                  to={item.href}
-                  className={`block py-2 text-base font-medium ${
-                    isActive(item.href)
-                      ? 'text-blue-600'
-                      : 'text-gray-700 hover:text-blue-600'
-                  }`}
-                >
-                  {item.name}
-                </Link>
+                {item.isAnchor ? (
+                  <button
+                    onClick={(e) => handleAnchorClick(e, item.href)}
+                    className="block py-2 text-base font-medium text-gray-700 hover:text-blue-600 w-full text-left"
+                  >
+                    {item.name}
+                  </button>
+                ) : (
+                  <Link
+                    to={item.href}
+                    className={`block py-2 text-base font-medium ${
+                      isActive(item.href)
+                        ? 'text-blue-600'
+                        : 'text-gray-700 hover:text-blue-600'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                )}
               </motion.div>
             ))}
           </motion.div>

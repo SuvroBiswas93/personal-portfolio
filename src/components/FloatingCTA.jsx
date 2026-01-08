@@ -34,7 +34,7 @@ const FloatingCTA = () => {
             damping: 20,
           }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 group"
+          className="fixed bottom-8 right-8 z-50 group cursor-pointer "
           aria-label="Scroll to top"
         >
           <div className="relative">
@@ -50,13 +50,13 @@ const FloatingCTA = () => {
                 duration: 2,
                 repeat: Infinity,
               }}
-              className="absolute inset-0 rounded-full"
+              className="absolute inset-0 rounded-full "
             />
 
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="relative w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 flex items-center justify-center text-white shadow-xl hover:shadow-2xl transition-all duration-300"
+              className="relative cursor-pointer w-14 h-14 rounded-full bg-linear-to-br from-blue-500 via-blue-600 to-blue-700 flex items-center justify-center text-white shadow-xl hover:shadow-2xl transition-all duration-300"
             >
               <motion.div
                 animate={{ y: [-2, 2, -2] }}
