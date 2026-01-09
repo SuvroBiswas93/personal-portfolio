@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { Github, Linkedin, Twitter, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
 
 const Footer = () => {
@@ -12,10 +11,29 @@ const Footer = () => {
     { icon: Mail, href: `mailto:${personalInfo.email}`, label: 'Email' },
   ];
 
+  const quickLinks = [
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Education', href: '#education' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Contact', href: '#contact' },
+  ];
+
+  const handleScroll = (href) => {
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+
+          {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold mb-4 bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               {personalInfo.name}
@@ -25,27 +43,24 @@ const Footer = () => {
             </p>
           </div>
 
+          {/* Quick Links */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {[
-                { name: 'Home', path: '/' },
-                { name: 'Skills', path: '/skills' },
-                { name: 'Projects', path: '/projects' },
-                { name: 'Contact', path: '/contact' },
-              ].map((item) => (
+              {quickLinks.map((item) => (
                 <li key={item.name}>
-                  <Link
-                    to={item.path}
-                    className="text-gray-400 hover:text-blue-400 transition-colors"
+                  <button
+                    onClick={() => handleScroll(item.href)}
+                    className="text-gray-400 hover:text-blue-400 transition-colors cursor-pointer"
                   >
                     {item.name}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>
           </div>
 
+          {/* Social */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
             <div className="flex gap-4">
@@ -68,8 +83,10 @@ const Footer = () => {
               })}
             </div>
           </div>
+
         </div>
 
+        {/* Copyright */}
         <div className="border-t border-gray-800 pt-8 text-center">
           <p className="text-gray-400 flex items-center justify-center gap-2">
             Made with <Heart size={16} className="text-red-500" /> by {personalInfo.name} © {currentYear}

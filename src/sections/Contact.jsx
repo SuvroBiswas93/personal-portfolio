@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { toast } from 'react-toastify';
+import { useForm } from 'react-hook-form';
 import SectionWrapper from '../components/SectionWrapper';
 import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
@@ -9,44 +9,25 @@ import { fadeIn } from '../utils/animations';
 import { personalInfo } from '../data/portfolio';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    mode: 'onChange',
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const onSubmit = async (data) => {
+    console.log(data)
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
+    toast.success('Message sent successfully! I will get back to you soon.', {
+      position: 'top-right',
+      autoClose: 5000,
     });
-  };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    setTimeout(() => {
-      toast.success('Message sent successfully! I will get back to you soon.', {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-      });
-      setIsSubmitting(false);
-    }, 1500);
+    reset();
   };
 
   const contactInfo = [
@@ -78,10 +59,7 @@ const Contact = () => {
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <motion.div
-          variants={fadeIn('right', 0.2)}
-          className="space-y-8"
-        >
+        <motion.div variants={fadeIn('right', 0.2)} className="space-y-8">
           <div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Let's talk about your project
@@ -116,73 +94,86 @@ const Contact = () => {
           </div>
         </motion.div>
 
-        <motion.div
-          variants={fadeIn('left', 0.2)}
-          className="bg-white rounded-2xl shadow-xl p-8"
-        >
-          <form onSubmit={handleSubmit} className="space-y-6">
+        <motion.div variants={fadeIn('left', 0.2)} className="bg-white rounded-2xl shadow-xl p-8">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+
+            {/* Name */}
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Your Name
               </label>
               <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
+                {...register('name', {
+                  required: 'Please enter your name',
+                  minLength: { value: 2, message: 'Name must be at least 2 characters' },
+                })}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
                 placeholder="Your Name..."
               />
+              {errors.name && (
+                <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>
+              )}
             </div>
 
+            {/* Email */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Email Address
               </label>
               <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
+                {...register('email', {
+                  required: 'Email is required',
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: 'Please enter a valid email address',
+                  },
+                })}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
                 placeholder="Your email..."
               />
+              {errors.email && (
+                <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>
+              )}
             </div>
 
+            {/* Subject */}
             <div>
-              <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Subject
               </label>
               <input
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
+                {...register('subject', {
+                  required: 'Subject is required',
+                  minLength: { value: 3, message: 'Subject is too short' },
+                })}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
                 placeholder="Your Subject..."
               />
+              {errors.subject && (
+                <p className="text-sm text-red-500 mt-1">{errors.subject.message}</p>
+              )}
             </div>
 
+            {/* Message */}
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 Message
               </label>
               <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
+                {...register('message', {
+                  required: 'Please write a message',
+                  minLength: {
+                    value: 10,
+                    message: 'Message should be at least 10 characters',
+                  },
+                })}
                 rows={5}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none resize-none"
                 placeholder="Write Your Message Here..."
               />
+              {errors.message && (
+                <p className="text-sm text-red-500 mt-1">{errors.message.message}</p>
+              )}
             </div>
 
             <Button
@@ -194,6 +185,7 @@ const Contact = () => {
             >
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </Button>
+
           </form>
         </motion.div>
       </div>

@@ -6,8 +6,8 @@ import { Menu, X } from 'lucide-react';
 const navItems = [
   { name: 'Home', href: '#home', isAnchor: true },
   { name: 'About', href: '#about', isAnchor: true },
-  { name: 'Education', href: '#education', isAnchor: true },
   { name: 'Skills', href: '#skills', isAnchor: true },
+  { name: 'Education', href: '#education', isAnchor: true },
   { name: 'Projects', href: '#projects', isAnchor: true },
   { name: 'Contact', href: '#contact', isAnchor: true },
 ];
