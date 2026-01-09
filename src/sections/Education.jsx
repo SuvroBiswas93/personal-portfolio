@@ -1,60 +1,66 @@
 import { motion } from 'framer-motion';
-import { GraduationCap } from 'lucide-react';
+import { BookOpen, Award, Calendar } from 'lucide-react';
 import SectionWrapper from '../components/SectionWrapper';
 import SectionTitle from '../components/SectionTitle';
 import { fadeIn } from '../utils/animations';
-import { education, certificates } from '../data/portfolio';
-import Button from '../components/Button';
+import { education } from '../data/portfolio';
+
+const EducationCard = ({ item, index }) => {
+  return (
+    <motion.div
+      variants={fadeIn('up', 0.2 * index)}
+      className="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all border-l-4 border-blue-500"
+    >
+      <div className="flex items-start justify-between mb-4">
+        <div className="flex items-start gap-4">
+          <div className="p-3 bg-blue-100 rounded-lg">
+            <BookOpen className="w-6 h-6 text-blue-600" />
+          </div>
+          <div>
+            <h3 className="text-xl font-bold text-gray-900">{item.degree}</h3>
+            <p className="text-blue-600 font-semibold">{item.school}</p>
+          </div>
+        </div>
+        <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+          {item.field}
+        </span>
+      </div>
+
+      <div className="flex items-center gap-2 mb-4 text-gray-600">
+        <Calendar className="w-4 h-4" />
+        <span className="font-medium">{item.year}</span>
+      </div>
+
+      <p className="text-gray-700 leading-relaxed">
+        {item.description}
+      </p>
+    </motion.div>
+  );
+};
 
 const Education = () => {
-  // Filter only Bachelor's degree
-  const bachelor = education.find((edu) =>
-    edu.degree.toLowerCase().includes('bachelor')
-  );
-
   return (
-    <SectionWrapper id="education" className="bg-gradient-to-br from-white to-gray-100">
+    <SectionWrapper id="education" className="bg-gradient-to-br from-blue-50 to-gray-50">
       <SectionTitle
         title="Education"
-        subtitle="A journey of knowledge and growth"
+        subtitle="My learning journey and certifications"
       />
 
-      <div className="relative mt-12 lg:mt-16">
-        {/* Vertical timeline line */}
-        <div className="absolute left-5 top-0 w-1 bg-blue-600 h-full rounded-full hidden md:block"></div>
-
-        {bachelor && (
-          <motion.div
-            variants={fadeIn('up', 0.1)}
-            className="relative md:pl-16"
-          >
-            {/* Dot on timeline */}
-            <div className="absolute -left-2 top-4 md:-left-3 md:top-6 w-6 h-6 bg-blue-600 rounded-full border-4 border-white shadow-lg"></div>
-
-            {/* Glass card */}
-            <div className="bg-white/80 backdrop-blur-md rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200">
-              <h4 className="text-xl md:text-2xl font-bold text-gray-900">{bachelor.degree}</h4>
-              <p className="text-blue-600 font-semibold mt-1">{bachelor.institution}</p>
-              <p className="text-gray-500 text-sm mt-1">{bachelor.period}</p>
-              <p className="text-gray-700 mt-2 leading-relaxed">{bachelor.description}</p>
-            </div>
-          </motion.div>
-        )}
-
-        {/* Download Certificates Button */}
-        {certificates.length > 0 && (
-          <div className="mt-12 text-center">
-            <Button
-              icon={GraduationCap}
-              variant="primary"
-              size="lg"
-              onClick={() => window.open('/path-to-certificates.pdf', '_blank')}
-            >
-              Download Certificates
-            </Button>
-          </div>
-        )}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        {education.map((item, index) => (
+          <EducationCard key={item.id} item={item} index={index} />
+        ))}
       </div>
+
+      <motion.div
+        variants={fadeIn('up', 0.8)}
+        className="bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl p-8 text-white text-center"
+      >
+        <Award className="w-12 h-12 mx-auto mb-4 opacity-80" />
+        <p className="text-lg font-semibold">
+          Continuous learning is my commitment to staying updated with the latest technologies and best practices
+        </p>
+      </motion.div>
     </SectionWrapper>
   );
 };

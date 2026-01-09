@@ -75,7 +75,7 @@ const Hero = () => {
             animate="show"
             className="text-xl sm:text-2xl md:text-3xl text-gray-700 mb-4 font-medium min-h-10 sm:min-h-14"
           >
-            <Typewriter texts={personalInfo.typewriterTexts} speed={80} deleteSpeed={40} delayBetween={2500} />
+            <Typewriter texts={personalInfo.typewriterTexts} speed={80} deleteSpeed={40} delayBetween={2000} />
           </motion.p>
 
           <motion.p
