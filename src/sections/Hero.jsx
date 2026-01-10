@@ -64,7 +64,7 @@ const Hero = () => {
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6"
           >
             Hi, I'm{' '}
-            <span className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-blue-600 via-violet-600 to-indigo-500 bg-clip-text text-transparent">
               {personalInfo.name}
             </span>
           </motion.h1>

@@ -21,7 +21,7 @@ const About = () => {
         >
           <div className="relative w-full aspect-square max-w-md mx-auto">
             <div className="absolute inset-0 bg-linear-to-br from-blue-500 to-purple-500 rounded-2xl rotate-6"></div>
-            <div className="absolute inset-0 bg-linear-to-br from-purple-500 to-pink-500 rounded-2xl -rotate-6"></div>
+            <div className="absolute inset-0 bg-linear-to-br from-purple-500 to-indigo-600 rounded-2xl -rotate-6"></div>
             <img
               src="https://scontent.fjsr12-1.fna.fbcdn.net/v/t39.30808-6/508447462_3290049197804172_379284283802245555_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG9Jx53yOkP3eLWmaREfRUc3Um_8oMs0PDdSb_ygyzQ8O4QmH0_xOj2JrysKlLroRLkRSKJL_eogolnpE6CenVP&_nc_ohc=8b1EEg_URFMQ7kNvwGK8kkw&_nc_oc=Adn4Nakzczr08BshI_oSdxkwNqimuTgG9CnMk_76ZrgCJ1T94JQAADtDI6v_vlygXc8&_nc_zt=23&_nc_ht=scontent.fjsr12-1.fna&_nc_gid=8Gockaco_HseLVV-R2VAiA&oh=00_Afo_ulHWsAULOZSAFTBymB4lU92cQ8S97Gk1TA80T2D-Cg&oe=69652602"
               alt="Profile"
