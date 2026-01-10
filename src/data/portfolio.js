@@ -12,7 +12,7 @@ export const personalInfo = {
   phone: "+8801758197272",
   location: "Nikunja-2,Khilkhet,Dhaka-1229",
   bio: "Passionate Frontend Web Developer with 1 year of experience building modern, user-friendly web interfaces. I enjoy turning complex problems into clean, intuitive, and visually appealing solutions.",
-  resumeUrl: "#",
+  resumeUrl: "https://drive.google.com/file/d/11br4ecxUsxQ5hQI_bOBl4C7Be4n3EF_o/viewusp=sharin",
   social: {
     github: "https://github.com/SuvroBiswas93",
     linkedin: "https://www.linkedin.com/in/the-suvro-biswas/",

@@ -70,6 +70,7 @@ const About = () => {
             variant="primary"
             size="lg"
             onClick={() => window.open(personalInfo.resumeUrl, '_blank')}
+            className='cursor-pointer'
           >
             Download Resume
           </Button>

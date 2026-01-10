@@ -34,7 +34,7 @@ const Typewriter = ({ texts, speed = 100, deleteSpeed = 50, delayBetween = 2000 
   }, [displayText, isDeleting, textIndex, texts, speed, deleteSpeed, delayBetween]);
 
   return (
-    <span className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+    <span className="bg-linear-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
       {displayText}
       <span className="animate-pulse">|</span>
     </span>
