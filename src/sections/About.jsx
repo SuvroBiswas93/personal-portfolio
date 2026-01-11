@@ -45,10 +45,37 @@ const About = () => {
             </div>
           </div>
 
+          {/* Introduction */}
           <p className="text-gray-600 leading-relaxed text-lg">
             {personalInfo.bio}
           </p>
 
+          {/* Programming Journey */}
+          <p className="text-gray-600 leading-relaxed text-lg">
+            My programming journey began with curiosity about how websites work behind the scenes.
+            What started as small experiments with HTML and CSS gradually evolved into building
+            full-fledged web applications using JavaScript and modern frontend technologies.
+            Each project I take on helps me improve my problem-solving skills and write cleaner,
+            more scalable code.
+          </p>
+
+          {/* Work Preference */}
+          <p className="text-gray-600 leading-relaxed text-lg">
+            I enjoy working on interactive, user-focused interfaces where design and functionality
+            come together. Creating smooth UI interactions, optimizing performance, and ensuring
+            responsive layouts across devices are the parts of development I enjoy the most.
+          </p>
+
+          {/* Hobbies & Personality */}
+          <p className="text-gray-600 leading-relaxed text-lg">
+            Outside of programming, I like staying active and exploring creative interests.
+            Whether it’s sports, learning new tools, or experimenting with UI ideas, I believe
+            in maintaining a healthy balance between technical growth and personal creativity.
+            I consider myself a curious, disciplined, and growth-driven individual who enjoys
+            continuous learning.
+          </p>
+
+          {/* Experience */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-gray-900">Experience</h3>
             {experience.map((exp, index) => (
@@ -57,7 +84,9 @@ const About = () => {
                 variants={fadeIn('up', 0.1 * index)}
                 className="border-l-4 border-blue-600 pl-4 py-2"
               >
-                <h4 className="font-semibold text-lg text-gray-900">{exp.position}</h4>
+                <h4 className="font-semibold text-lg text-gray-900">
+                  {exp.position}
+                </h4>
                 <p className="text-blue-600 font-medium">{exp.company}</p>
                 <p className="text-sm text-gray-500 mb-2">{exp.period}</p>
                 <p className="text-gray-600">{exp.description}</p>
@@ -70,7 +99,7 @@ const About = () => {
             variant="primary"
             size="lg"
             onClick={() => window.open(personalInfo.resumeUrl, '_blank')}
-            className='cursor-pointer'
+            className="cursor-pointer"
           >
             Download Resume
           </Button>

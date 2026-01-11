@@ -1,24 +1,41 @@
 export const personalInfo = {
   name: "Suvro Biswas",
   title: "Frontend Web Developer",
-    typewriterTexts: [
+  typewriterTexts: [
     "Front End Web Developer",
     "React Developer",
     "Building modern & responsive web apps",
-    'Creating clean, scalable UI',
-    'Always learning. Always building.'
+    "Creating clean, scalable UI",
+    "Always learning. Always building."
   ],
   email: "shuvo.249963@gmail.com",
   phone: "+8801758197272",
-  location: "Nikunja-2,Khilkhet,Dhaka-1229",
-  bio: "Passionate Frontend Web Developer with 1 year of experience building modern, user-friendly web interfaces. I enjoy turning complex problems into clean, intuitive, and visually appealing solutions.",
-  resumeUrl: "https://drive.google.com/file/d/11br4ecxUsxQ5hQI_bOBl4C7Be4n3EF_o/viewusp=sharin",
+  location: "Nikunja-2, Khilkhet, Dhaka-1229",
+
+ bio: "Frontend Web Developer with 1 year of experience building clean, responsive, and user-friendly web interfaces. I focus on turning ideas into intuitive and visually engaging digital experiences.",
+
+journey:
+  "Started my journey driven by curiosity about how websites work and grew into building modern web applications using JavaScript and React.",
+
+workPreference:
+  "I enjoy creating interactive, performance-focused UIs with clean code and thoughtful user experience.",
+
+hobbies:
+  "Outside coding, I enjoy sports, exploring new tools, and experimenting with UI design ideas.",
+
+personality:
+  "Curious, disciplined, and growth-driven developer with a strong passion for continuous learning.",
+
+
+  resumeUrl: "https://drive.google.com/file/d/11br4ecxUsxQ5hQI_bOBl4C7Be4n3EF_o/view?usp=sharing",
+
   social: {
     github: "https://github.com/SuvroBiswas93",
     linkedin: "https://www.linkedin.com/in/the-suvro-biswas/",
     twitter: "https://x.com/",
   }
 };
+
 
 export const skills = [
   {
