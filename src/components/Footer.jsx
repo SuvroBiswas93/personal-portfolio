@@ -89,7 +89,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-gray-800 pt-8 text-center">
           <p className="text-gray-400 flex items-center justify-center gap-2">
-            Made with <Heart size={16} className="text-red-500" /> by {personalInfo.name} © {currentYear}
+            All rights reserved by {personalInfo.name} © {currentYear}
           </p>
         </div>
       </div>
