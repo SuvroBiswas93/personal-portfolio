@@ -66,7 +66,7 @@ export const education = [
     school: "American International University Bangladesh(AIUB)",
     degree: "Bachelor of Science in Computer Science And Engineering",
     field: "Computer Engineering",
-    year: "2016 - 2022",
+    year: "2017 - 2022",
     description: "Completed a comprehensive Bachelor’s program in Computer Science and Engineering, gaining in-depth knowledge of programming languages, data structures, algorithms, databases, software engineering principles, and web & mobile application development. Developed strong problem-solving, analytical, and logical thinking skills, with hands-on experience in building scalable and responsive applications. Prepared to leverage this foundation to design innovative software solutions, contribute to full-stack development projects, and continuously adapt to emerging technologies in the industry."
   },
   {

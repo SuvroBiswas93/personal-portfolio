@@ -89,7 +89,7 @@ const Header = () => {
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="text-2xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
             >
-              Portfolio
+              Suvro Biswas
             </Link>
           </motion.div>
 
