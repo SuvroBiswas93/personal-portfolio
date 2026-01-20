@@ -27,7 +27,7 @@ personality:
   "Curious, disciplined, and growth-driven developer with a strong passion for continuous learning.",
 
 
-  resumeUrl: "https://drive.google.com/file/d/11br4ecxUsxQ5hQI_bOBl4C7Be4n3EF_o/view?usp=sharing",
+  resumeUrl: "https://drive.google.com/file/d/1HA4ElCNqTKDU0tc8ErtH11W5RpyMAtiD/view?usp=sharing",
 
   social: {
     github: "https://github.com/SuvroBiswas93",
@@ -141,12 +141,12 @@ export const projects = [
   },
   {
     id: 5,
-    title: "Portfolio CMS",
-    description: "Content management system for creative professionals to showcase their work.",
-    image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800",
-    tags: ["Next.js", "Sanity", "Tailwind"],
-    liveUrl: "#",
-    githubUrl: "#",
+    title: "ShopHub E-commerce platform",
+    description: "A lightweight e-commerce web application developed with Next.js 16, featuring a responsive design, MongoDB integration, and authentication-protected features.",
+    image: "https://plus.unsplash.com/premium_photo-1677995700941-100976883af7?q=80&w=923&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    tags: ["Next.js16", "mongodb", "Tailwind",'NextImages','app-router','authentication','react-hook-form'],
+    liveUrl: "https://shophub-fawn.vercel.app/",
+    githubUrl: "https://github.com/SuvroBiswas93/shophub",
     featured: false
   },
   
