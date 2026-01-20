@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
+import emailjs from '@emailjs/browser';
+
 import SectionWrapper from '../components/SectionWrapper';
 import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
@@ -19,15 +21,36 @@ const Contact = () => {
   });
 
   const onSubmit = async (data) => {
-    console.log(data)
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: data.name,
+          from_email: data.email,
+          subject: data.subject,
+          message: data.message,
+          to_name: 'Suvro',
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
 
-    toast.success('Message sent successfully! I will get back to you soon.', {
-      position: 'top-right',
-      autoClose: 5000,
-    });
+      toast.success(
+        'Message sent successfully! I will get back to you soon.',
+        {
+          position: 'top-right',
+          autoClose: 5000,
+        }
+      );
 
-    reset();
+      reset();
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      toast.error('Failed to send message. Please try again later.', {
+        position: 'top-right',
+        autoClose: 5000,
+      });
+    }
   };
 
   const contactInfo = [
@@ -59,6 +82,8 @@ const Contact = () => {
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+        {/* LEFT CONTENT */}
         <motion.div variants={fadeIn('right', 0.2)} className="space-y-8">
           <div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -94,6 +119,7 @@ const Contact = () => {
           </div>
         </motion.div>
 
+        {/* FORM */}
         <motion.div variants={fadeIn('left', 0.2)} className="bg-white rounded-2xl shadow-xl p-8">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
 
@@ -107,8 +133,8 @@ const Contact = () => {
                   required: 'Please enter your name',
                   minLength: { value: 2, message: 'Name must be at least 2 characters' },
                 })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
-                placeholder="Your Name..."
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                placeholder="Your name..."
               />
               {errors.name && (
                 <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>
@@ -128,7 +154,7 @@ const Contact = () => {
                     message: 'Please enter a valid email address',
                   },
                 })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
                 placeholder="Your email..."
               />
               {errors.email && (
@@ -146,8 +172,8 @@ const Contact = () => {
                   required: 'Subject is required',
                   minLength: { value: 3, message: 'Subject is too short' },
                 })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
-                placeholder="Your Subject..."
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                placeholder="Subject..."
               />
               {errors.subject && (
                 <p className="text-sm text-red-500 mt-1">{errors.subject.message}</p>
@@ -168,8 +194,8 @@ const Contact = () => {
                   },
                 })}
                 rows={5}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none resize-none"
-                placeholder="Write Your Message Here..."
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none"
+                placeholder="Write your message here..."
               />
               {errors.message && (
                 <p className="text-sm text-red-500 mt-1">{errors.message.message}</p>
@@ -181,7 +207,7 @@ const Contact = () => {
               disabled={isSubmitting}
               icon={Send}
               size="lg"
-              className="w-full cursor-pointer"
+              className="w-full"
             >
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </Button>
