@@ -4,7 +4,6 @@ import {
   SiReactrouter,
   SiMongodb,
   SiFirebase,
-  SiJsonwebtokens,
   SiVite,
   SiVercel,
   SiNetlify,
@@ -31,7 +30,7 @@ export const skillIcons = {
   "REST APIs": TbApi,
   MongoDB: SiMongodb,
   "Firebase Authentication": SiFirebase,
-  "JWT Authentication": SiJsonwebtokens,
+  "Firebase Token Authentication": SiFirebase, 
 
   "Git & GitHub": FaGithub,
   Vite: SiVite,

@@ -9,7 +9,7 @@ export const skillColors = {
   "Node.js": "#339933",
   MongoDB: "#47A248",
   "Firebase Authentication": "#FFCA28",
-  "JWT Authentication": "#000000",
+  "Firebase Token Authentication": "#FFCA28", // UPDATED HERE
 
   "Git & GitHub": "#181717",
   Vite: "#646CFF",

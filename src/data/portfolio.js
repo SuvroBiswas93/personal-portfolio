@@ -55,12 +55,12 @@ export const skills = [
   {
     category: "Backend",
     items: [
-      { name: "Node.js", level: 85 },
-      { name: "Express.js", level: 85 },
-      { name: "REST APIs", level: 88 },
-      { name: "MongoDB", level: 82 },
-      { name: "Firebase Authentication", level: 85 },
-      { name: "JWT Authentication", level: 80 },
+      { name: "Node.js", level: 70 },
+      { name: "Express.js", level: 70 },
+      { name: "REST APIs", level: 72 },
+      { name: "MongoDB", level: 70 },
+      { name: "Firebase Authentication", level: 72 },
+      { name: "Firebase Token Authentication", level: 70 },
     ]
   },
   {

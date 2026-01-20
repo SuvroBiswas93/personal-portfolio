@@ -3,7 +3,6 @@ import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
-
 import SectionWrapper from '../components/SectionWrapper';
 import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
@@ -207,7 +206,7 @@ const Contact = () => {
               disabled={isSubmitting}
               icon={Send}
               size="lg"
-              className="w-full"
+              className="w-full cursor-pointer"
             >
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </Button>
