@@ -23,7 +23,6 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      // Update active section
       const sections = navItems
         .filter((item) => item.isAnchor)
         .map((item) => document.getElementById(item.href.replace('#', '')))
@@ -48,11 +47,7 @@ const Header = () => {
 
   // Close mobile menu on route change
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsMobileMenuOpen(false);
-    }, 0);
-
-    return () => clearTimeout(timer);
+    setIsMobileMenuOpen(false);
   }, [location]);
 
   const handleAnchorClick = (e, href) => {
@@ -61,7 +56,7 @@ const Header = () => {
     const element = document.getElementById(targetId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(targetId); // update active on click
+      setActiveSection(targetId);
     }
   };
 
@@ -78,15 +73,19 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg py-4' : 'bg-transparent py-6'
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-white shadow-lg py-4' : 'bg-transparent py-6'
+      }`}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="w-full max-w-full mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
         <div className="flex justify-between items-center">
+          {/* Logo */}
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
               to="/"
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              onClick={() =>
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }
               className="text-2xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
             >
               Suvro Biswas
@@ -100,24 +99,26 @@ const Header = () => {
                 {item.isAnchor ? (
                   <button
                     onClick={(e) => handleAnchorClick(e, item.href)}
-                    className={`text-sm font-medium transition-colors cursor-pointer ${isActive(item.href)
+                    className={`text-sm font-medium transition-colors cursor-pointer ${
+                      isActive(item.href)
                         ? 'text-blue-600 font-semibold'
                         : isScrolled
-                          ? 'text-gray-700 hover:text-blue-600'
-                          : 'text-gray-800 hover:text-blue-600'
-                      }`}
+                        ? 'text-gray-700 hover:text-blue-600'
+                        : 'text-gray-800 hover:text-blue-600'
+                    }`}
                   >
                     {item.name}
                   </button>
                 ) : (
                   <Link
                     to={item.href}
-                    className={`text-sm font-medium transition-colors ${isActive(item.href)
+                    className={`text-sm font-medium transition-colors ${
+                      isActive(item.href)
                         ? 'text-blue-600 font-semibold'
                         : isScrolled
-                          ? 'text-gray-700 hover:text-blue-600'
-                          : 'text-gray-800 hover:text-blue-600'
-                      }`}
+                        ? 'text-gray-700 hover:text-blue-600'
+                        : 'text-gray-800 hover:text-blue-600'
+                    }`}
                   >
                     {item.name}
                   </Link>
@@ -142,27 +143,29 @@ const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden mt-4 py-4 border-t border-gray-200"
+            className="md:hidden mt-4 py-4 border-t border-gray-200 w-full overflow-hidden"
           >
             {navItems.map((item) => (
-              <motion.div key={item.name} whileHover={{ x: 5 }}>
+              <motion.div key={item.name} whileHover={{ x: 2 }}>
                 {item.isAnchor ? (
                   <button
                     onClick={(e) => handleAnchorClick(e, item.href)}
-                    className={`block py-2 text-base font-medium w-full text-left ${isActive(item.href)
+                    className={`block py-2 text-base font-medium w-full text-left ${
+                      isActive(item.href)
                         ? 'text-blue-600 font-semibold'
                         : 'text-gray-700 hover:text-blue-600'
-                      }`}
+                    }`}
                   >
                     {item.name}
                   </button>
                 ) : (
                   <Link
                     to={item.href}
-                    className={`block py-2 text-base font-medium ${isActive(item.href)
+                    className={`block py-2 text-base font-medium w-full ${
+                      isActive(item.href)
                         ? 'text-blue-600 font-semibold'
                         : 'text-gray-700 hover:text-blue-600'
-                      }`}
+                    }`}
                   >
                     {item.name}
                   </Link>
