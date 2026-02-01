@@ -7,11 +7,19 @@ import { personalInfo } from '../data/portfolio';
 
 const Hero = () => {
   const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    const el = document.getElementById('contact');
+    if (!el) return;
+    const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+    const y = el.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12;
+    window.scrollTo({ top: y, behavior: 'smooth' });
   };
 
   const scrollToProjects = () => {
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+    const el = document.getElementById('projects');
+    if (!el) return;
+    const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+    const y = el.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12;
+    window.scrollTo({ top: y, behavior: 'smooth' });
   };
 
   return (
@@ -148,9 +156,9 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll Down Arrow */}
+     {/* Scroll Down Arrow */}
       <motion.div
-        animate={{ y: [0, 10, 0] }}
+        animate={{ y: [0, 10, 0] }} // bounce animation
         transition={{ duration: 1.5, repeat: Infinity }}
         className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2"
       >

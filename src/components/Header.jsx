@@ -50,16 +50,19 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   }, [location]);
 
-  // Smooth scroll for anchor links
-  const handleAnchorClick = (e, href) => {
-    e.preventDefault();
-    const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(targetId);
-    }
-  };
+ // Smooth scroll for anchor links 
+const handleAnchorClick = (e, href) => {
+  e.preventDefault();
+  const targetId = href.replace('#', '');
+  const element = document.getElementById(targetId);
+  if (element) {
+    const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+    const y = element.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12; // adjust gap if needed
+    window.scrollTo({ top: y, behavior: 'smooth' });
+    setActiveSection(targetId);
+    setIsMobileMenuOpen(false); // close mobile menu on mobile after click
+  }
+};
 
   const isActive = (href) => {
     if (href.startsWith('#')) {
