@@ -31,7 +31,7 @@ personality:
 
   social: {
     github: "https://github.com/SuvroBiswas93",
-    linkedin: "https://www.linkedin.com/in/the-suvro-biswas/",
+    linkedin: "https://www.linkedin.com/in/suvro-biswas/",
     twitter: "https://x.com/",
   }
 };
